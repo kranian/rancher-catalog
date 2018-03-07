@@ -71,14 +71,14 @@ catalog:
           required: true
           label: "# of minimum Master Nodes"
           description: "Set the number of required master nodes to reach quorum. Sets initial scale to this value as well"
-          default: 3
+          default: 1
 
         - variable: "initial_data_nodes"
           type: "int"
           required: true
           label: "# of initial data nodes"
           description: "Set the initial number of data nodes"
-          default: 2
+          default: 3
 
         - variable: "initial_client_nodes"
           type: "int"
