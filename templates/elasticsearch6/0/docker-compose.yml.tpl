@@ -29,6 +29,9 @@ services:
             - IPC_LOCK
         volumes_from:
             - es-storage
+        ports :
+            - "9200:9200"
+            - "9300:9300"
 
     es-data:
         labels:
