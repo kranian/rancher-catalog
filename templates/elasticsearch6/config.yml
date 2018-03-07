@@ -1,6 +1,6 @@
-name: Elasticsearch 6.x
+name: Elasticsearch 6.2.2
 description: |
   Elasticsearch, you know for search!
-version: 6.x
+version: 6.2.2
 category: ELK
 maintainer: ysheo@elevisor.com
