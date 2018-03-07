@@ -5,12 +5,13 @@ services:
             io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
             io.rancher.container.hostname_override: container_name
             io.rancher.sidekicks: es-storage{{- if eq .Values.UPDATE_SYSCTL "true" -}},es-sysctl{{- end}}
-        image: docker.elastic.co/elasticsearch/elasticsearch:6.2.2
+        image: docker.elastic.co/elasticsearch/elasticsearch-platinum:6.2.2
         environment:
             - "cluster.name=${cluster_name}"
             - "node.name=$${HOSTNAME}"
             - "bootstrap.memory_lock=true"
             - "xpack.security.enabled=false"
+            - "ELASTIC_PASSWORD=elevisor"
             - "ES_JAVA_OPTS=-Xms${master_heap_size} -Xmx${master_heap_size}"
             - "discovery.zen.ping.unicast.hosts=es-master"
             - "discovery.zen.minimum_master_nodes=${minimum_master_nodes}"
@@ -38,11 +39,12 @@ services:
             io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
             io.rancher.container.hostname_override: container_name
             io.rancher.sidekicks: es-storage{{- if eq .Values.UPDATE_SYSCTL "true" -}},es-sysctl{{- end}}
-        image: docker.elastic.co/elasticsearch/elasticsearch:6.2.2
+        image: docker.elastic.co/elasticsearch/elasticsearch-platinum:6.2.2
         environment:
             - "cluster.name=${cluster_name}"
             - "node.name=$${HOSTNAME}"
             - "bootstrap.memory_lock=true"
+            - "ELASTIC_PASSWORD=elevisor"
             - "xpack.security.enabled=false"
             - "discovery.zen.ping.unicast.hosts=es-master"
             - "ES_JAVA_OPTS=-Xms${data_heap_size} -Xmx${data_heap_size}"
@@ -69,10 +71,11 @@ services:
             io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
             io.rancher.container.hostname_override: container_name
             io.rancher.sidekicks: es-storage{{- if eq .Values.UPDATE_SYSCTL "true" -}},es-sysctl{{- end}}
-        image: docker.elastic.co/elasticsearch/elasticsearch:6.2.2
+        image: docker.elastic.co/elasticsearch/elasticsearch-platinum:6.2.2
         environment:
             - "cluster.name=${cluster_name}"
             - "node.name=$${HOSTNAME}"
+            - "ELASTIC_PASSWORD=elevisor"
             - "bootstrap.memory_lock=true"
             - "xpack.security.enabled=false"
             - "discovery.zen.ping.unicast.hosts=es-master"
