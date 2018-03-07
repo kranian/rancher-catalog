@@ -32,8 +32,6 @@ services:
             - es-storage
         ports :
             - "9200:9200"
-            - "9300:9300"
-
     es-data:
         labels:
             io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
@@ -65,7 +63,8 @@ services:
             - es-storage
         depends_on:
             - es-master
-
+        ports :
+            - "9300:9300"
     es-client:
         labels:
             io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
