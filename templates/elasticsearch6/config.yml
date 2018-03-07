@@ -1,0 +1,6 @@
+name: Elasticsearch 6.x
+description: |
+  Elasticsearch, you know for search!
+version: 6.x
+category: ELK
+maintainer: ysheo@elevisor.com
