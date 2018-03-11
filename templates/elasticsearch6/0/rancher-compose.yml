@@ -87,6 +87,20 @@ catalog:
           description: "Set the initial number of client nodes"
           default: 1
 
+        - variable: "initial_transport_port"
+          type: "int"
+          required: true
+          label: "# of initial transport port"
+          description: "Set initial client transport port"
+          default: 9300
+
+        - variable: "initial_http_port"
+          type: "int"
+          required: true
+          label: "# of initial http port"
+          description: "Set master initial http port"
+          default: 9200
+
         - variable: "VOLUME_DRIVER"
           description: "The VOLUME driver to associate with this server"
           label: "VOLUME Driver"

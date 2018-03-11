@@ -31,7 +31,7 @@ services:
         volumes_from:
             - es-storage
         ports :
-            - "9200:9200"
+            - "${initial_http_port}:9200"
     es-data:
         labels:
             io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
@@ -95,7 +95,7 @@ services:
         depends_on:
             - es-master
         ports :
-            - "9300:9300"
+            - "${initial_transport_port}:9300"
     es-storage:
         labels:
             io.rancher.container.start_once: true
